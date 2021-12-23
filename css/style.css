@@ -201,7 +201,22 @@ table.table tbody tr td:nth-child(3){
     color: #fff;
     font-size: 13px;
     border-radius: 10px;
+    padding: 5px 8px;
     cursor: pointer;
+}
+.btn-follow:hover {
+    background-color: rgb(79, 119, 192);
+}
+
+.btn-unfollow{
+    background-color: rgb(226, 226, 226);
+    font-size: 13px;
+    border-radius: 10px;
+    padding: 5px 8px;
+    cursor: pointer;
+}
+.btn-unfollow:hover {
+    background-color: rgb(195, 195, 195);
 }
 
 .menu{
