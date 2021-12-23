@@ -1,3 +1,29 @@
+$(document).ready(function(){
+
+      // Pencarian User
+      $("#search").keyup(function(){
+            var src = $(this).val();
+            if(src != ''){
+                  loadsearch(src);
+            } else {
+                  loadsearch();
+            }
+      })
+});
+
+// Pencarian
+function loadsearch(query){
+      if(query != ''){
+            $.ajax({
+                  url: "proses/prosesSearch.php",
+                  data: {query:query},
+                  method: "POST",
+                  success: function(data){
+                        $(".result-search").html(data);
+                  }
+            });
+      }
+}
 function dofollow($iduser, $toiduser, $status)
 {
       if($status == 1){

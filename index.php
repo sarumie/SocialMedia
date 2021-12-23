@@ -70,7 +70,9 @@ $user = mysqli_fetch_array($sql);
                 </td>
                 <td>
                     <!-- search result -->
-                    <div class="result-search"></div>
+                    <div class="result-search">
+
+                    </div>
 
                     <!-- create new post -->
                     <div class="box">
