@@ -9,7 +9,18 @@ $(document).ready(function(){
                   loadsearch();
             }
       })
+
+      // Tampilkan pop up pengaturan
+      $("#config").on('click',function(){
+            $('.pengaturan').fadeIn();
+      });
+      // Tutup jika batal mengubah profil
+      $(".btn-cancel").on('click',function(){
+            $('.pengaturan').fadeOut();
+      });
 });
+
+
 
 // Pencarian
 function loadsearch(query){
@@ -91,4 +102,9 @@ function doUnlike($postingID, $iduser, $toiduser){
                   $(".unlike" + $postingID).hide();
             }
       });
+}
+
+// Tampil komentar
+function showComment($idtweet){
+      $(".commentfromid"  + $idtweet).show();
 }

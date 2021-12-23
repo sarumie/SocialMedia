@@ -10,7 +10,7 @@ if ($sqlDislike) {
     // Cek Dislike
     echo "Berhasil dislike";
     //
-    mysqli_query($db_koneksi, "UPDATE tweet SET totalLike = totalLike+1 WHERE idtweet = $postingID");
+    mysqli_query($db_koneksi, "UPDATE tweet SET totalLike = totalLike-1 WHERE idtweet = $postingID");
 } else {
     echo "Gagal dislike";
 }

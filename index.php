@@ -103,7 +103,6 @@ $user = mysqli_fetch_array($sql);
                         while ($pengguna = mysqli_fetch_array($sqlpengguna)) {
 
                     ?>
-
                             <!-- feeds area -->
                             <div class="box">
                                 <!-- header /box -->
@@ -168,16 +167,42 @@ $user = mysqli_fetch_array($sql);
                                             ?>
                                         </li>
                                         <li>
-                                            <button class="button btn btn-responses"><i class="icon-comment-alt"></i></button>
+                                            <button class="button btn btn-responses btncommentid<?= $postingan['idtweet']; ?>" onclick="showComment(<?= $postingan['idtweet']; ?>)"><i class="icon-comment-alt"></i></button>
                                         </li>
                                         <li>
                                             <button class="button btn btn-responses"><i class="icon-share"></i></button>
                                         </li>
                                     </div>
-                                    <span class="post-date"><a href=""><?= $postingan['totalLike']; ?> Like</a> / <a href="">110 cmnt</a> / <a href="">2 share</a><?= date('M d,Y H:i', strtotime($postingan['dateTw'])) ?></span>
+                                    <span class="post-date"><a href=""><?= $postingan['totalLike']; ?> Like</a> / <a href=""><?= $postingan['totalComment']; ?> Komentar</a> / <a href="">2 share </a><?= date('M d,Y H:i', strtotime($postingan['dateTw'])) ?></span>
+                                </div>
+                                <!-- Comment -->
+                                <div class="comment-area hide commentfromid<?= $postingan['idtweet']; ?>">
+                                    <div class="comment">
+                                        <form action="proses/prosesComment.php" method="POST">
+                                            <textarea name="comment" placeholder="Ketik Komentar" cols="50" rows="1"></textarea>
+                                            <input type="hidden" name="iduser" value="<?= $user['iduser']; ?>">
+                                            <input type="hidden" name="toiduser" value="<?= $pengguna['iduser']; ?>">
+                                            <input type="hidden" name="idtweet" value="<?= $postingan['idtweet']; ?>">
+                                            <button type="submit" name="postComment" class="button btn btn-comment">Kirim</button>
+                                        </form>
+                                    </div>
+                                    <!-- Tampilkan komentar -->
+                                    <div class="show-comment">
+                                        <?php
+                                        $sqlshowcomment = mysqli_query($db_koneksi, "SELECT * FROM comments WHERE idtweet = " . $postingan['idtweet'] . " ORDER BY RAND() LIMIT 3");
+                                        while ($showcomment = mysqli_fetch_array($sqlshowcomment)) {
+                                            //tampilkan user sesuai komentar
+                                            $sqlusercomment = mysqli_query($db_koneksi, "SELECT * FROM user WHERE iduser = " . $showcomment['iduser']);
+                                            while ($usercomment = mysqli_fetch_array($sqlusercomment)) {
+                                        ?>
+                                                <li><a href=""><strong><?= $usercomment['fullname']; ?></strong> @<?= $usercomment['username']; ?></a>: <?= $showcomment['comment']; ?></li>
+                                        <?php
+                                            }
+                                        }
+                                        ?>
+                                    </div>
                                 </div>
                             </div>
-
                     <?php
                         }
                     }
