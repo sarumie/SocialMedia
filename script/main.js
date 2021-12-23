@@ -58,3 +58,37 @@ function doUnfollow($iduser, $toiduser, $status){
             });
       }
 }
+
+// Fungsi Like
+function doLike($postingID, $iduser, $toiduser){
+      $.ajax({
+            url: "proses/prosesLike.php",
+            type: "POST",
+            data: {postingID:$postingID, iduser:$iduser, toiduser:$toiduser},
+            cache: false,
+            beforeSend: function(){
+                  console.log("Loading");
+            },
+            success: function(){
+                  $(".like" + $postingID).hide();
+                  $(".unlike" + $postingID).show();
+            }
+      });
+}
+
+// Fungsi Dislike
+function doUnlike($postingID, $iduser, $toiduser){
+      $.ajax({
+            url: "proses/prosesUnlike.php",
+            type: "POST",
+            data: {postingID:$postingID, iduser:$iduser, toiduser:$toiduser},
+            cache: false,
+            beforeSend: function(){
+                  console.log("Loading");
+            },
+            success: function(){
+                  $(".like" + $postingID).show();
+                  $(".unlike" + $postingID).hide();
+            }
+      });
+}

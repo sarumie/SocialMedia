@@ -152,7 +152,20 @@ $user = mysqli_fetch_array($sql);
                                     <!-- reaction -->
                                     <div class="gv-react">
                                         <li>
-                                            <button class="button btn btn-responses"><i class="icon-heart-empty"></i></button>
+                                            <?php
+                                            $sqlLike = mysqli_query($db_koneksi, "SELECT * FROM likes WHERE toiduser = " . $pengguna['iduser'] . " AND idtweet = " . $postingan['idtweet']);
+                                            if (mysqli_num_rows($sqlLike) == 1) {
+                                            ?>
+                                                <button class="button btn btn-responses unlike<?= $postingan['idtweet']; ?>" onclick="doUnlike(<?= $postingan['idtweet'] . ',' . $user['iduser'] . ',' . $pengguna['iduser']; ?>)"><i class="icon-heart"></i></button>
+                                                <button class="button btn btn-responses hide like<?= $postingan['idtweet']; ?>" onclick="doLike(<?= $postingan['idtweet'] . ',' . $user['iduser'] . ',' . $pengguna['iduser']; ?>)"><i class="icon-heart-empty"></i></button>
+                                            <?php
+                                            } else {
+                                            ?>
+                                                <button class="button btn btn-responses like<?= $postingan['idtweet']; ?>" onclick="doLike(<?= $postingan['idtweet'] . ',' . $user['iduser'] . ',' . $pengguna['iduser']; ?>)"><i class="icon-heart-empty"></i></button>
+                                                <button class="button btn btn-responses hide unlike<?= $postingan['idtweet']; ?>" onclick="doUnlike(<?= $postingan['idtweet'] . ',' . $user['iduser'] . ',' . $pengguna['iduser']; ?>)"><i class="icon-heart"></i></button>
+                                            <?php
+                                            }
+                                            ?>
                                         </li>
                                         <li>
                                             <button class="button btn btn-responses"><i class="icon-comment-alt"></i></button>
@@ -161,7 +174,7 @@ $user = mysqli_fetch_array($sql);
                                             <button class="button btn btn-responses"><i class="icon-share"></i></button>
                                         </li>
                                     </div>
-                                    <span class="post-date"><a href="">11rb like</a> / <a href="">110 cmnt</a> / <a href="">2 share</a> - Jun, 1 2020 11:21Pm</span>
+                                    <span class="post-date"><a href=""><?= $postingan['totalLike']; ?> Like</a> / <a href="">110 cmnt</a> / <a href="">2 share</a><?= date('M d,Y H:i', strtotime($postingan['dateTw'])) ?></span>
                                 </div>
                             </div>
 

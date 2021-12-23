@@ -397,3 +397,11 @@ li{
 .u{
     color: #000;
 }
+
+.hide {
+    display: none;
+}
+
+.icon-heart {
+    color: rgb(240, 60, 60);
+}
