@@ -92,7 +92,7 @@ $otheruser = mysqli_fetch_array($sql2);
         <tbody>
             <tr>
                 <td>
-                    <li>Galeri</li>
+                    <!-- <li>Galeri</li> -->
                     <li>Pengikut</li>
                     <li>Mengikuti</li>
                     <li><a href="logout.php" class="link-out">Keluar<i class="icon-signout"></i></a></li>

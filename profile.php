@@ -87,7 +87,7 @@ $user = mysqli_fetch_array($sql);
                             </div>
                             <div class="identity">
                                 <strong><?= $user['fullname']; ?></strong>
-                                <small>@pengguna</small>
+                                <small>@<?= $user['username']; ?></small>
                             </div>
                         </span>
                     </div>
@@ -97,7 +97,7 @@ $user = mysqli_fetch_array($sql);
         <tbody>
             <tr>
                 <td>
-                    <li>Galeri</li>
+                    <!-- <li>Galeri</li> -->
                     <li>Pengikut</li>
                     <li>Mengikuti</li>
                     <li><a href="logout.php" class="link-out">Keluar <i class="icon-signout"></i></a></li>

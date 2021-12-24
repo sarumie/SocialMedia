@@ -23,12 +23,10 @@ $user = mysqli_fetch_array($sql);
 </head>
 
 <body>
+    <!-- Result Galeri -->
+    <!-- <div class="tampilgaleri">
 
-    <!--<div class="modal">
-        <div class="modal-content">
-
-        </div>
-    </div>-->
+    </div> -->
     <table class="table">
         <thead>
             <tr>
@@ -65,7 +63,7 @@ $user = mysqli_fetch_array($sql);
                 <td>
                     <li><a href="profile.php">Profile</a></li>
                     <li>Teman</li>
-                    <li>Galeri</li>
+                    <!-- <li><span class="galeri">Galeri</span></li> -->
                     <li><a href="logout.php" class="link-out">Keluar <i class="icon-signout"></i></a></li>
                 </td>
                 <td>

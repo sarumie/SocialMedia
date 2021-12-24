@@ -8,7 +8,7 @@ $(document).ready(function(){
             } else {
                   loadsearch();
             }
-      })
+      });
 
       // Tampilkan pop up pengaturan
       $("#config").on('click',function(){
@@ -35,6 +35,8 @@ function loadsearch(query){
             });
       }
 }
+
+// Fungsi Unfollow
 function dofollow($iduser, $toiduser, $status)
 {
       if($status == 1){
@@ -53,6 +55,7 @@ function dofollow($iduser, $toiduser, $status)
       }
 }
 
+// Fungsi Unfollow
 function doUnfollow($iduser, $toiduser, $status){
       if($status == 1){
             $.ajax({
