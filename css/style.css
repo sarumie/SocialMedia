@@ -471,6 +471,11 @@ button.btn-cancel.button.btn {
     cursor: pointer;
 }
 
+.options {
+    overflow: hidden;
+    visibility: hidden;
+}
+
 /* Galeri */
 /* .galeri {
     cursor: pointer;

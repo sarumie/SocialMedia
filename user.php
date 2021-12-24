@@ -85,9 +85,7 @@ $otheruser = mysqli_fetch_array($sql2);
             <tr>
                 <td>
                     <!-- <li>Galeri</li> -->
-                    <li>Pengikut</li>
-                    <li>Mengikuti</li>
-                    <li><a href="logout.php" class="link-out">Keluar<i class="icon-signout"></i></a></li>
+                    <!-- <li><a href="logout.php" class="link-out">Keluar<i class="icon-signout"></i></a></li> -->
                 </td>
                 <td>
                     <?php
@@ -164,10 +162,10 @@ $otheruser = mysqli_fetch_array($sql2);
                                             <button class="button btn btn-responses btncommentid<?= $postingan['idtweet']; ?>" onclick="showComment(<?= $postingan['idtweet']; ?>)"><i class="icon-comment-alt"></i></button>
                                         </li>
                                         <li>
-                                            <button class="button btn btn-responses"><i class="icon-share"></i></button>
+                                            <!-- <button class="button btn btn-responses"><i class="icon-share"></i></button> -->
                                         </li>
                                     </div>
-                                    <span class="post-date"><a href=""><?= $postingan['totalLike']; ?> Like</a> / <a href=""><?= $postingan['totalComment']; ?> Komentar</a> / <a href="">2 share </a><?= date('M d,Y H:i', strtotime($postingan['dateTw'])) ?></span>
+                                    <span class="post-date"><a href=""><?= $postingan['totalLike']; ?> Like</a> / <a href=""><?= $postingan['totalComment']; ?> Komentar </a><?= date('M d,Y H:i', strtotime($postingan['dateTw'])) ?></span>
                                 </div>
                                 <!-- Comment -->
                                 <div class="comment-area hide commentfromid<?= $postingan['idtweet']; ?>">
