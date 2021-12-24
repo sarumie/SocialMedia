@@ -44,7 +44,7 @@ $otheruser = mysqli_fetch_array($sql2);
                 <th style="width: 400px;">
                     <div class="menu">
                         <li><a href="index.php">Beranda</a></li>
-                        <li>(10) Notifikasi</li>
+                        <!-- <li>(10) Notifikasi</li> -->
                         <li>
                             <div class="menu-top">
                                 <span class="identity">

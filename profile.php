@@ -49,7 +49,7 @@ $user = mysqli_fetch_array($sql);
                 <th>
                     <div class="menu">
                         <li><a href="index.php">Beranda</a></li>
-                        <li>(10) Notifikasi</li>
+                        <!-- <li>(10) Notifikasi</li> -->
                         <li>
                             <div class="menu-top">
                                 <span class="identity">
