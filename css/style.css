@@ -32,7 +32,7 @@ a{
 }
 .input{
     border: none;
-    padding:0px 10px;
+    padding: 10px 10px;
 }
 .button{
     border: none;
@@ -55,6 +55,7 @@ table.table tbody tr th:nth-child(3){
 
 table.table tbody tr td{
     vertical-align: top;
+    line-height: 20px;
     padding:5px 10px;
 }
 table.table tbody tr td:nth-child(1){
@@ -222,6 +223,8 @@ table.table tbody tr td:nth-child(3){
 }
 
 .menu{
+    display: flex;
+    align-items: center;
     float: right;
     font-size: 13px;
 }
@@ -357,7 +360,7 @@ li{
 .profile-info .the-profile div.profile-picture{
     width: 100px !important;
     height: 100px !important;
-    margin-top: -70px;
+    margin-top: -60px;
     margin-left: 20px;
 }
 

@@ -43,7 +43,7 @@ $user = mysqli_fetch_array($sql);
                 <th>
                     <div class="menu">
                         <li><a href="index.php">Beranda</a></li>
-                        <li>(10) Notifikasi</li>
+                        <!-- <li>(10) Notifikasi</li> -->
                         <li>
                             <div class="menu-top">
                                 <span class="identity">
@@ -220,7 +220,7 @@ $user = mysqli_fetch_array($sql);
                             // Cek status follow
                             $sqlfollowed = mysqli_query($db_koneksi, "SELECT * FROM follow WHERE fromiduser = " . $userlain['iduser'] . " AND toiduser = " . $user['iduser']);
                             // Cek 
-                            if (mysqli_num_rows($sqlfollowed) != 1) { // Jika belum diikuti
+                            if (mysqli_num_rows($sqlfollowed) !== 1) { // Jika belum diikuti
                                 // Cek apakah sudah diikuti atau belum
                                 // Hanya menampilkan user yang belum di follow
                                 if ($user['iduser'] != $userlain['iduser']) {
