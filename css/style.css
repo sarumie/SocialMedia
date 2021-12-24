@@ -463,6 +463,14 @@ button.btn-cancel.button.btn {
     height: 100%;
 }
 
+#icon {
+    width: 140px;
+    display: block;
+    /* margin-left: auto; */
+    margin-right: auto;
+    cursor: pointer;
+}
+
 /* Galeri */
 /* .galeri {
     cursor: pointer;

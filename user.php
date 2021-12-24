@@ -27,24 +27,16 @@ $otheruser = mysqli_fetch_array($sql2);
 </head>
 
 <body>
-
-    <!--<div class="modal">
-        <div class="modal-content">
-
-        </div>
-    </div>-->
     <table class="table">
         <thead>
             <tr>
-                <th>Sosial Media</th>
+                <th><img src="assets/icon.png" alt="Icon" id="icon" onclick="location.href='login.php'"></th>
                 <th>
                     <!-- search bar -->
-
                 </th>
                 <th style="width: 400px;">
                     <div class="menu">
                         <li><a href="index.php">Beranda</a></li>
-                        <!-- <li>(10) Notifikasi</li> -->
                         <li>
                             <div class="menu-top">
                                 <span class="identity">

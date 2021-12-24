@@ -41,7 +41,7 @@ $user = mysqli_fetch_array($sql);
     <table class="table">
         <thead>
             <tr>
-                <th>Sosial Media</th>
+                <th><img src="assets/icon.png" alt="Icon" id="icon" onclick="location.href='index.php'"></th>
                 <th>
                     <!-- search bar -->
 
@@ -49,7 +49,6 @@ $user = mysqli_fetch_array($sql);
                 <th>
                     <div class="menu">
                         <li><a href="index.php">Beranda</a></li>
-                        <!-- <li>(10) Notifikasi</li> -->
                         <li>
                             <div class="menu-top">
                                 <span class="identity">
