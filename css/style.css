@@ -1,12 +1,10 @@
-@import url(//db.onlinewebfonts.com/c/05c2c6630ebb447b301f8c0278299ca5?family=Nimbus+Sans+L);
-
 *{
     margin: 0;
     padding: 0;
     top: 0;
     left: 0;
     box-sizing: border-box;
-    font-family: 'Nimbus Sans',sans-serif;
+    font-family: 'Nimbus Sans L',sans-serif;
 }
 body.body-home{
     background: linear-gradient(rgb(221, 231, 250), #c9f1d4);
@@ -29,6 +27,7 @@ a{
     border-radius: 10px 0px 0px 10px;
     outline: orangered;
     background-color: #f9f9f9;
+    z-index: 99;
 }
 .input{
     border: none;
@@ -45,7 +44,6 @@ a{
 }
 table.table tbody tr th{
     height: 20px;
-    /*background-color: tomato;*/
     padding: 10px;
 }
 table.table tbody tr th:nth-child(3){
@@ -74,7 +72,6 @@ table.table tbody tr td:nth-child(3){
 .box{
     border: 1px solid #eee;
     padding:10px 10px;
-    width: 575px;
     overflow: hidden;
     margin-bottom: 10px;
     background-color: #fff;
@@ -171,7 +168,8 @@ table.table tbody tr td:nth-child(3){
     margin-top: -16px;
 }
 .recoms{
-    display: blocks;
+    margin-bottom: 10px;
+    display: block;
 }
 .recoms h5{
     margin-bottom: 10px;
@@ -287,8 +285,12 @@ li{
 	background-color: rgb(0, 0, 0);
 	background-color: rgba(0, 0, 0, 0.7);
 }
-.modal-content{
+.modal-content > form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 	background-color: #fff;
+    border-radius: 10px;
 	margin: auto;
 	padding: 10px;
 	border: 1px solid #ddd;
@@ -370,6 +372,9 @@ li{
 .profile-info .the-profile div.identity small{
     color: chocolate;
     margin: 5px;
+}
+small > span {
+    color: rgb(187, 187, 187);
 }
 .profile-info div.cover div.cover-img{
     text-align: center;
@@ -466,15 +471,90 @@ button.btn-cancel.button.btn {
 #icon {
     width: 140px;
     display: block;
-    /* margin-left: auto; */
     margin-right: auto;
     cursor: pointer;
 }
 
-.options {
+.container-side {
+    /* background-color: blue; */
+    position: fixed;
+    width: 22vmax;
+}
+
+.btn-side {
+    position: sticky;
+    top: 50px;
+    width: fit-content;
+    margin-top: 10vh;
+}
+
+.btn-side > a {
+    display: block;
+    color: black;
+    margin-bottom: 10px;
+    font-size: 1.7em;
+    font-weight: 500;
+    /* width: 30px;
+    height: 20px; */
+    padding: 16px 24px;
+    border-radius: 20px;
+    text-align: left;
+    transition: background-color 0.3s ease-out;
+}
+.btn-side>.btn-profile {
+    margin-bottom: 19rem;
+}
+.btn-side>.btn-logout {
+    color: rgb(228, 38, 38);
+}
+
+.btn-side > .btn-profile:hover, .btn-home:hover {
+    background-color: rgb(238, 238, 238);
+}
+
+.hovered {
+    cursor: default;
+    background-color: rgb(238, 238, 238);
+}
+/* .btn-side > a:active {
+    border-color: rgb(39, 39, 39);
+    border-width: 1px;  
+    border-style: solid;
+} */
+
+.btn-side > .btn-logout:hover {
+    background-color: rgb(255, 228, 228);
+}
+.prof {
+    margin: 40vh auto;
+}
+
+#fotoProfile {
+    margin-bottom: 10px;
+}
+
+.modal-content > form > button {
+    padding: 10px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.btn-ubah:hover {
+    background-color: rgb(91, 130, 204);
+}
+
+.btn-cancel:hover {
+    background-color: rgb(226, 226, 226);
+}
+
+input[name="fotoProfile"] {
+    margin-bottom: 10px;
+}
+
+/* .options {
     overflow: hidden;
     visibility: hidden;
-}
+} */
 
 /* Galeri */
 /* .galeri {

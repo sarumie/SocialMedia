@@ -31,13 +31,22 @@ if (!empty($uploadFotoName) && !empty($uploadCoverName)) {
     if ($sql1) {
         if (move_uploaded_file($uploadFotoFile, "$folderFoto" . $filebaru1) && move_uploaded_file($uploadCoverFile, "$folderSampul" . $filebaru2)) {
             // Jika berhasil upload ke folder server
-            header("Location: ../profile.php?upload1=success&upload2=success");
+            echo    "<script>
+                    alert('Ubah profile sukses');
+                    location.href = 'profile.php';
+                    </script>";
         } else {
             // Jika gagal upload ke folder server
-            header("Location: ../profile.php?upload1=gagal&upload2=gagal");
+            echo    "<script>
+                    alert('Gagal upload file ke server');
+                    location.href = 'profile.php';
+                    </script>";
         }
     } else {
         // Jika gagal ubah di databasenya
-        header("Location: ../profile.php?update=gagal&failed=1");
+        echo    "<script>
+                    alert('Gagal mengubah profile');
+                    location.href = 'profile.php';
+                    </script>";
     }
 }

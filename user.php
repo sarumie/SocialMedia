@@ -2,6 +2,10 @@
 session_start();
 include "config.php";
 
+if ($_SESSION['iduser'] == $_GET['id']) {
+    header("location: profile.php");
+}
+
 if (!isset($_SESSION['userlogin'])) {
     header("location: login.php");
 }
@@ -24,6 +28,7 @@ $otheruser = mysqli_fetch_array($sql2);
     <link rel="stylesheet" type="text/css" href="icon/icon.css">
     <script src="script/jquery.js" type="text/javascript"></script>
     <script src="script/main.js" type="text/javascript"></script>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 </head>
 
 <body>
@@ -36,7 +41,7 @@ $otheruser = mysqli_fetch_array($sql2);
                 </th>
                 <th style="width: 400px;">
                     <div class="menu">
-                        <li><a href="index.php">Beranda</a></li>
+                        <!-- <li><a href="index.php">Beranda</a></li> -->
                         <li>
                             <div class="menu-top">
                                 <span class="identity">
@@ -63,9 +68,6 @@ $otheruser = mysqli_fetch_array($sql2);
                             <div class="cover-img">
                                 <img src="assets/cover/<?= $otheruser['cover']; ?>" alt="A">
                             </div>
-                            <div class="config">
-                                <i class="icon-cog"></i>
-                            </div>
                         </div>
                         <!-- profile pic -->
                         <span class="profile the-profile">
@@ -74,7 +76,7 @@ $otheruser = mysqli_fetch_array($sql2);
                             </div>
                             <div class="identity">
                                 <strong><?= $otheruser['fullname']; ?></strong>
-                                <small>@pengguna</small>
+                                <small>@<?= $otheruser['username']; ?></small>
                             </div>
                         </span>
                     </div>
@@ -84,8 +86,11 @@ $otheruser = mysqli_fetch_array($sql2);
         <tbody>
             <tr>
                 <td>
-                    <!-- <li>Galeri</li> -->
-                    <!-- <li><a href="logout.php" class="link-out">Keluar<i class="icon-signout"></i></a></li> -->
+                    <div class="btn-side">
+                        <a href="index.php" class="btn-home" type="button"><i class="icon-home"></i> Home</a>
+                        <a href="profile.php" class="btn-profile" type="button"><i class="icon-user"></i> Profile</a>
+                        <a href="logout.php" class="link-out btn-logout">Log out <i class="icon-signout"></i></a>
+                    </div>
                 </td>
                 <td>
                     <?php

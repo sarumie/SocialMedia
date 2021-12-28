@@ -20,6 +20,7 @@ $user = mysqli_fetch_array($sql);
     <link rel="stylesheet" type="text/css" href="icon/icon.css">
     <script src="script/jquery.js" type="text/javascript"></script>
     <script src="script/main.js" type="text/javascript"></script>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 </head>
 
 <body>
@@ -27,6 +28,15 @@ $user = mysqli_fetch_array($sql);
     <!-- <div class="tampilgaleri">
 
     </div> -->
+    <!-- Side button -->
+    <!-- <div class="container-side">
+        <div class="btn-side">
+            <a href="profile.php" class="btn-profile" type="button">Profile</a>
+            <a href="logout.php" class="link-out btn-logout">Log out <i class="icon-signout"></i></a>
+        </div>
+    </div> -->
+    <!-- End Side button -->
+
     <table class="table">
         <thead>
             <tr>
@@ -40,7 +50,7 @@ $user = mysqli_fetch_array($sql);
                 </th>
                 <th>
                     <div class="menu">
-                        <li><a href="index.php">Beranda</a></li>
+                        <!-- <li><a href="index.php">Beranda</a></li> -->
                         <!-- <li>(10) Notifikasi</li> -->
                         <li>
                             <div class="menu-top">
@@ -61,9 +71,11 @@ $user = mysqli_fetch_array($sql);
         <tbody>
             <tr>
                 <td>
-                    <li><a href="profile.php">Profile</a></li>
-                    <!-- <li><span class="galeri">Galeri</span></li> -->
-                    <li><a href="logout.php" class="link-out">Keluar <i class="icon-signout"></i></a></li>
+                    <div class="btn-side">
+                        <a href="index.php" class="btn-home hovered" type="button"><i class="icon-home"></i> Home</a>
+                        <a href="profile.php" class="btn-profile" type="button"><i class="icon-user"></i> Profile</a>
+                        <a href="logout.php" class="link-out btn-logout">Log out <i class="icon-signout"></i></a>
+                    </div>
                 </td>
                 <td>
                     <!-- search result -->
@@ -98,7 +110,6 @@ $user = mysqli_fetch_array($sql);
                         // Tampilkan profil setiap pengguna
                         $sqlpengguna = mysqli_query($db_koneksi, "SELECT * FROM user WHERE iduser = " . $postingan['iduser']);
                         while ($pengguna = mysqli_fetch_array($sqlpengguna)) {
-
                     ?>
                             <!-- feeds area -->
                             <div class="box">
@@ -180,7 +191,7 @@ $user = mysqli_fetch_array($sql);
                                             <input type="hidden" name="iduser" value="<?= $user['iduser']; ?>">
                                             <input type="hidden" name="toiduser" value="<?= $pengguna['iduser']; ?>">
                                             <input type="hidden" name="idtweet" value="<?= $postingan['idtweet']; ?>">
-                                            <button type="submit" name="postComment" class="button btn btn-comment">Kirim</button>
+                                            <button type="submit" name="postComment" class="button btn btn-comment" onclick="refreshComment(<?= $postingan['idtweet']; ?>)">Kirim</button>
                                         </form>
                                     </div>
                                     <!-- Tampilkan komentar -->
@@ -234,7 +245,7 @@ $user = mysqli_fetch_array($sql);
                                                 <small>@<?= $userlain['username']; ?></small>
                                             </div>
                                             <div class="options recoms-options">
-                                                <button class="button btn btn-follow btnfollowid<?= $userlain['iduser']; ?>" onclick="dofollow(<?= $userlain['iduser']; ?>, <?= $user['iduser']; ?>, '1')">Follow</button>
+                                                <button class="button btn btn-follow btnfollowid<?= $userlain['iduser']; ?>" onclick="doFollow(<?= $userlain['iduser']; ?>, <?= $user['iduser']; ?>, '1')">Follow</button>
                                             </div>
                                         </div>
                                     </li>

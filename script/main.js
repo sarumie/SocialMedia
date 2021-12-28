@@ -37,7 +37,7 @@ function loadsearch(query){
 }
 
 // Fungsi Unfollow
-function dofollow($iduser, $toiduser, $status)
+function doFollow($iduser, $toiduser, $status)
 {
       if($status == 1){
             $.ajax({
@@ -111,3 +111,8 @@ function doUnlike($postingID, $iduser, $toiduser){
 function showComment($idtweet){
       $(".commentfromid"  + $idtweet).show();
 }
+
+// function refreshComment($idtweet){
+//       const commentId = ".commentfromid" + $idtweet;
+//       $(commentId).load(location.href + commentId);
+// }

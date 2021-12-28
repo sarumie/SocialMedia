@@ -20,17 +20,19 @@ $user = mysqli_fetch_array($sql);
     <link rel="stylesheet" type="text/css" href="icon/icon.css">
     <script src="script/jquery.js" type="text/javascript"></script>
     <script src="script/main.js" type="text/javascript"></script>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 </head>
 
 <body>
 
+    <!-- Modal ubah profile -->
     <div class="modal pengaturan hide">
         <div class="modal-content">
             <form action="proses/prosesUbahProfile.php" method="POST" enctype="multipart/form-data">
                 <label for="fotoProfile">Ubah foto profile</label>
-                <input type="file" name="fotoProfile">
+                <input type="file" name="fotoProfile" accept="image/*">
                 <label for="fotoSampul">Ubah foto sampul</label>
-                <input type="file" name="fotoSampul">
+                <input type="file" name="fotoSampul" accept="image/*">
                 <br>
                 <input type="hidden" name="myid" value="<?= $user['iduser']; ?>">
                 <button type="submit" class="button btn btn-ubah">Ubah</button>
@@ -38,17 +40,17 @@ $user = mysqli_fetch_array($sql);
             </form>
         </div>
     </div>
+    <!-- End Modal ubah profile -->
+
     <table class="table">
         <thead>
             <tr>
                 <th><img src="assets/icon.png" alt="Icon" id="icon" onclick="location.href='index.php'"></th>
                 <th>
                     <!-- search bar -->
-
                 </th>
                 <th>
                     <div class="menu">
-                        <li><a href="index.php">Beranda</a></li>
                         <li>
                             <div class="menu-top">
                                 <span class="identity">
@@ -96,8 +98,11 @@ $user = mysqli_fetch_array($sql);
         <tbody>
             <tr>
                 <td>
-                    <!-- <li>Galeri</li> -->
-                    <!-- <li><a href="logout.php" class="link-out">Keluar <i class="icon-signout"></i></a></li> -->
+                    <div class="btn-side">
+                        <a href="index.php" class="btn-home" type="button"><i class="icon-home"></i> Home</a>
+                        <a href="" class="btn-profile hovered" type="button"><i class="icon-user"></i> Profile</a>
+                        <a href="logout.php" class="link-out btn-logout">Log out <i class="icon-signout"></i></a>
+                    </div>
                 </td>
                 <td>
                     <?php
@@ -122,7 +127,7 @@ $user = mysqli_fetch_array($sql);
                                                 <strong><a href="user.php?id=<?= $pengguna['iduser']; ?>" class="u"><?= $pengguna['fullname']; ?></a></strong>
                                                 <!-- user (@) -->
                                                 <div class="user-n">
-                                                    <small>@<?= $pengguna['username']; ?>
+                                                    <small>@<?= $pengguna['username']; ?> <span><?= date('M y', strtotime($postingan['dateTw'])) ?></span>
                                                         <!-- times ago -->
                                                     </small>
                                                 </div>
@@ -177,7 +182,7 @@ $user = mysqli_fetch_array($sql);
                                             <!-- <button class="button btn btn-responses"><i class="icon-share"></i></button> -->
                                         </li>
                                     </div>
-                                    <span class="post-date"><a href=""><?= $postingan['totalLike']; ?> Like</a> / <a href=""><?= $postingan['totalComment']; ?> Komentar </a><?= date('M d,Y H:i', strtotime($postingan['dateTw'])) ?></span>
+                                    <span class="post-date"><a href=""><?= $postingan['totalLike']; ?> Like</a> / <a href=""><?= $postingan['totalComment']; ?> Komentar </a><?= date('D,d H:i', strtotime($postingan['dateTw'])) ?></span>
                                 </div>
                                 <!-- Comment -->
                                 <div class="comment-area hide commentfromid<?= $postingan['idtweet']; ?>">
