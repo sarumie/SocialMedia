@@ -5,7 +5,7 @@ if (!isset($_SESSION['userlogin'])) {
     header("location: login.php");
 }
 
-if ($_SESSION['level'] == "user") {
+if (!$_SESSION['level'] == 'admin') {
     header("location: index.php");
 }
 ?>

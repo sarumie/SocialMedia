@@ -1,43 +1,95 @@
-<?php 
-
+<?php
 session_start();
-if(isset($_SESSION['userlogin'])){
-    header("location: index.php");
+include "config.php";
+
+// Jika sudah login
+if (isset($_SESSION['userlogin'])) {
+    // Diarahkan ke halaman utama
+    header('location: index.php');
 }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="css/login-register.css">
     <title>Register</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+
+    <style>
+        * {
+            font-family: Poppins;
+        }
+    </style>
 </head>
-<body>
-    <div class="container">
-        <form action="proses/prosesDaftar.php" method="POST" class="login-email">
-            <p class="login-text" style="font-size: 2rem; font-weight: 800;">Register</p>
-            <div class="input-group">
-                <input type="text" placeholder="Fullname" name="fullname">
+
+<body class="w-full h-screen justify-center items-center flex bg-gradient-to-r from-cyan-500 to-blue-500">
+    <div class="w-3/5 h-3/4 bg-white drop-shadow-2xl rounded-md">
+        <div class="container h-full flex flex-row">
+            <div class="w-1/3 rounded-l-md bg-[url('https://i.ibb.co/SQmBNbm/download-ixid-Mnwx-Mj-A3f-DF8-MXxhb-Gx8-MTF8f-Hx8f-Hwyf-Hwx-Nj-Qw-Nj-Yw-NDU1-force-true-w-1920.jpg')] bg-cover"></div>
+            <img src="assets/icon.png" alt="Icon" class="w-1/6 absolute right-0 top-5">
+            <div class="w-2/3 p-5 flex items-center">
+                <div class="container flex flex-col">
+                    <h1 class="text-4xl font-bold mb-10">Register</h1>
+                    <form action="proses/prosesDaftar.php" method="POST" autocomplete="off" class="flex flex-col">
+
+                        <div class="input-group flex flex-col mb-1">
+                            <label for="fullname" class="font-medium text-lg mb-1">Fullname</label>
+                            <input type="text" id="fullname" name="fullname" readonly onfocus="this.removeAttribute('readonly');" class="rounded-md p-3 border-solid border-2 border-gray-200">
+                        </div>
+
+                        <div class="input-group flex flex-col mb-1">
+                            <label for="username" class="font-medium text-lg mb-1">Username</label>
+                            <input type="text" id="username" name="username" readonly onfocus="this.removeAttribute('readonly');" class="rounded-md p-3 border-solid border-2 border-gray-200">
+                        </div>
+
+                        <div class="input-group flex flex-col mb-1">
+                            <label for="email" class="font-medium text-lg mb-1">Email</label>
+                            <input type="email" id="email" name="email" readonly onfocus="this.removeAttribute('readonly');" class="rounded-md p-3 border-solid border-2 border-gray-200">
+                        </div>
+
+                        <!-- Password area -->
+                        <div class="input-group flex flex-col mb-1">
+                            <label for="password1" class="font-medium text-lg mb-1">Password</label>
+                            <input type="password" id="password1" name="password1" readonly onfocus="this.removeAttribute('readonly');" class="rounded-md p-3 border-solid border-2 border-gray-200">
+                        </div>
+
+                        <div class="input-group flex flex-col mb-1">
+                            <label for="password2" class="font-medium text-lg mb-1">Confirm Password</label>
+                            <input type="password" id="password2" name="password2" readonly onfocus="this.removeAttribute('readonly');" class="rounded-md p-3 border-solid border-2 border-gray-200">
+                        </div>
+                        <div class="input-group flex flex-row mb-5 items-center">
+                            <input type="checkbox" onclick="showPassword()" class="rounded text-sky-500">
+                            <p class="ml-2">Tampilkan Password</p>
+                        </div>
+                        <!-- End Password area -->
+
+                        <button name="submit" class="bg-sky-200 px-5 py-2 rounded-lg duration-150 font-semibold hover:bg-sky-300 w-5/10">Register</button>
+
+                        <p class="font-medium">Sudah punya akun? <a href="login.php" class="text-sky-500 hover:text-sky-700">Log In</a></p>
+                    </form>
+                </div>
             </div>
-            <div class="input-group">
-                <input type="text" placeholder="Email" name="email">
-            </div>
-            <div class="input-group">
-                <input type="text" placeholder="Username" name="username">
-            </div>
-            <div class="input-group">
-                <input name="password1" type="password" placeholder="Password">
-            </div>
-            <div class="input-group">
-                <input name="password2" type="password" placeholder="Confirm Password">
-            </div>
-            <div class="input-group">
-                <button name="submit" class="btn">Register</button>
-            </div>
-            <p class="login-register-text">Anda sudah punya akun? <a href="index.php">Login</a></p>
-        </form>
+        </div>
     </div>
+
+    <script>
+        function showPassword() {
+            var x = document.getElementById("password1");
+            var y = document.getElementById("password2");
+            if (x.type === "password") {
+                x.type = "text";
+                y.type = "text";
+            } else {
+                x.type = "password";
+                y.type = "password";
+            }
+        }
+    </script>
+
 </body>
+
 </html>

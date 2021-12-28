@@ -16,7 +16,10 @@ if ($password1 == $password2){
     // Cek
     if($sql){
         // Jika berhasil daftar maka ke Login page
-        header("location: ../login.php");
+        echo "<script>
+        location.href = '../login.php';
+        alert('Berhasil mendaftarkan akun');
+        </script>";
     } else {
         // Jika gagal
         echo "<script>
@@ -29,4 +32,3 @@ if ($password1 == $password2){
 } else {
     echo "<script>alert('Password yang dimaksudkan tidak sama!')</script>";
 }
-?>

@@ -232,7 +232,7 @@ $user = mysqli_fetch_array($sql);
                         ?>
                                 <li>
                                     <div class="friend friend-img">
-                                        <img src="assets/photo/<?= $userfollowing['foto']; ?>" alt="">
+                                        <a href="user.php?id=<?= $userfollowing['iduser']; ?>" style="width: fit-content;"><img src="assets/photo/<?= $userfollowing['foto']; ?>" alt=""></a>
                                     </div>
                                 </li>
                         <?php
@@ -266,7 +266,7 @@ $user = mysqli_fetch_array($sql);
                                                 <small>@<?= $userlain['username']; ?></small>
                                             </div>
                                             <div class="options recoms-options">
-                                                <button class="button btn btn-follow btnfollowid<?= $userlain['iduser']; ?>" onclick="dofollow(<?= $userlain['iduser']; ?>, <?= $user['iduser']; ?>, '1')">Follow</button>
+                                                <button class="button btn btn-follow btnfollowid<?= $userlain['iduser']; ?>" onclick="doFollow(<?= $userlain['iduser']; ?>, <?= $user['iduser']; ?>, '1')">Follow</button>
                                             </div>
                                         </div>
                                     </li>
