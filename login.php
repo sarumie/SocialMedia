@@ -17,6 +17,7 @@ if (isset($_SESSION['userlogin'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log In</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script/main.js"></script>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 
     <style>
@@ -43,8 +44,8 @@ if (isset($_SESSION['userlogin'])) {
                         </div>
 
                         <div class="input-group flex flex-col mb-1">
-                            <label for="password" class="font-medium text-lg mb-1">Password</label>
-                            <input type="password" id="password" name="password" class="rounded-md p-3 border-solid border-2 border-gray-200">
+                            <label for="password1" class="font-medium text-lg mb-1">Password</label>
+                            <input type="password" id="password1" name="password" class="rounded-md p-3 border-solid border-2 border-gray-200">
                         </div>
                         <div class="input-group flex flex-row mb-5 items-center">
                             <input type="checkbox" onclick="showPassword()" class="rounded text-sky-500">
@@ -59,18 +60,6 @@ if (isset($_SESSION['userlogin'])) {
             </div>
         </div>
     </div>
-
-    <script>
-        function showPassword() {
-            var x = document.getElementById("password");
-            if (x.type === "password") {
-                x.type = "text";
-            } else {
-                x.type = "password";
-            }
-        }
-    </script>
-
 </body>
 
 </html>

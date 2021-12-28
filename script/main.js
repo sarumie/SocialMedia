@@ -112,6 +112,23 @@ function showComment($idtweet){
       $(".commentfromid"  + $idtweet).show();
 }
 
+// Show password login / register
+function showPassword() {
+            var x = document.getElementById("password1");
+            var y = document.getElementById("password2");
+            if (x.type === "password") {
+                x.type = "text";
+                if (y) {
+                  y.type ="text" 
+                }
+            } else {
+                x.type = "password";
+                if (y) {
+                  y.type ="password" 
+                }
+            }
+        }
+
 // function refreshComment($idtweet){
 //       const commentId = ".commentfromid" + $idtweet;
 //       $(commentId).load(location.href + commentId);
