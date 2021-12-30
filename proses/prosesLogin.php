@@ -13,14 +13,16 @@ if ($row == 1) {
     // Jika ada / sama maka akses login diberikan kepada akun yang ada
     $_SESSION['userlogin'] = $username;
     $_SESSION['iduser'] = $data['iduser'];
-    $_SESSION['level'] = $data['level'];
+    // $_SESSION['level'] = $data['level'];
 
-    if ($_SESSION['level'] == "admin") {
-        // Jika admin maka ke halaman admin
-        header('location: ../admin.php');
-    } else {
-        // Jika user biasa maka ke halaman utama
-        header('location: ../index.php');
+    if (isset($_SESSION['level'])) {
+        if ($_SESSION['level'] == "admin") {
+            // Jika admin maka ke halaman admin
+            header('location: ../admin.php');
+        } else {
+            // Jika user biasa maka ke halaman utama
+            header('location: ../index.php');
+        }
     }
 } else {
     echo "<script>
