@@ -54,6 +54,7 @@ $user = mysqli_fetch_array($sql);
                         <!-- <li>(10) Notifikasi</li> -->
                         <li>
                             <div class="menu-top">
+                                <a href="logout.php" class="link-out btn-logout"><span>Log out </span><i class="icon-signout"></i></a>
                                 <span class="identity">
                                     <strong><a href="profile.php"><?= $user['fullname']; ?></a></strong>
                                 </span>
@@ -74,7 +75,7 @@ $user = mysqli_fetch_array($sql);
                     <div class="btn-side">
                         <a href="index.php" class="btn-home hovered" type="button"><i class="icon-home"></i> Home</a>
                         <a href="profile.php" class="btn-profile" type="button"><i class="icon-user"></i> Profile</a>
-                        <a href="logout.php" class="link-out btn-logout">Log out <i class="icon-signout"></i></a>
+                        <!-- <a href="logout.php" class="link-out btn-logout">Log out <i class="icon-signout"></i></a> -->
                     </div>
                 </td>
                 <td>
@@ -105,7 +106,7 @@ $user = mysqli_fetch_array($sql);
                     <?php
                     // Tampilkan tweet pengguna
                     // Hanya tampilkan tweet yang saya ikuti
-                    $sqltw = mysqli_query($db_koneksi, "SELECT * FROM tweet as p WHERE p.iduser = " . $user['iduser'] . " OR (p.iduser IN (SELECT toiduser FROM follow WHERE fromiduser = " . $user['iduser'] . ") AND p.tw <> 'only by me') ORDER BY dateTw DESC");
+                    $sqltw = mysqli_query($db_koneksi, "SELECT * FROM tweet WHERE iduser IN (SELECT fromiduser FROM follow WHERE toiduser = " . $user['iduser'] . ") OR iduser = " . $user['iduser'] . " ORDER BY dateTw DESC");
                     while ($postingan = mysqli_fetch_array($sqltw)) {
                         // Tampilkan profil setiap pengguna
                         $sqlpengguna = mysqli_query($db_koneksi, "SELECT * FROM user WHERE iduser = " . $postingan['iduser']);
@@ -132,7 +133,7 @@ $user = mysqli_fetch_array($sql);
                                                 </div>
                                             </span>
 
-                                            <div class="options">
+                                            <div class="options hide">
                                                 <i class="icon-ellipsis-vertical"></i>
                                             </div>
                                         </span>

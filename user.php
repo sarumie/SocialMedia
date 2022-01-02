@@ -44,6 +44,7 @@ $otheruser = mysqli_fetch_array($sql2);
                         <!-- <li><a href="index.php">Beranda</a></li> -->
                         <li>
                             <div class="menu-top">
+                                <a href="logout.php" class="link-out btn-logout"><span>Log out </span><i class="icon-signout"></i></a>
                                 <span class="identity">
                                     <strong><a href="profile.php"><?= $user['fullname']; ?></a></strong>
                                 </span>
@@ -89,7 +90,7 @@ $otheruser = mysqli_fetch_array($sql2);
                     <div class="btn-side">
                         <a href="index.php" class="btn-home" type="button"><i class="icon-home"></i> Home</a>
                         <a href="profile.php" class="btn-profile" type="button"><i class="icon-user"></i> Profile</a>
-                        <a href="logout.php" class="link-out btn-logout">Log out <i class="icon-signout"></i></a>
+                        <!-- <a href="logout.php" class="link-out btn-logout">Log out <i class="icon-signout"></i></a> -->
                     </div>
                 </td>
                 <td>
@@ -121,7 +122,7 @@ $otheruser = mysqli_fetch_array($sql2);
                                                 </div>
                                             </span>
 
-                                            <div class="options">
+                                            <div class="options hide">
                                                 <i class="icon-ellipsis-vertical"></i>
                                             </div>
                                         </span>
@@ -192,7 +193,7 @@ $otheruser = mysqli_fetch_array($sql2);
                                             $sqlusercomment = mysqli_query($db_koneksi, "SELECT * FROM user WHERE iduser = " . $showcomment['iduser']);
                                             while ($usercomment = mysqli_fetch_array($sqlusercomment)) {
                                         ?>
-                                                <li><a href=""><strong><?= $usercomment['fullname']; ?></strong> @<?= $usercomment['username']; ?></a>: <?= $showcomment['comment']; ?></li>
+                                                <li><a href="#"><strong><?= $usercomment['fullname']; ?></strong> @<?= $usercomment['username']; ?></a>: <?= $showcomment['comment']; ?></li>
                                         <?php
                                             }
                                         }

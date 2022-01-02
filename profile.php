@@ -21,6 +21,7 @@ $user = mysqli_fetch_array($sql);
     <script src="script/jquery.js" type="text/javascript"></script>
     <script src="script/main.js" type="text/javascript"></script>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -53,6 +54,7 @@ $user = mysqli_fetch_array($sql);
                     <div class="menu">
                         <li>
                             <div class="menu-top">
+                                <a href="logout.php" class="link-out btn-logout"><span>Log out </span><i class="icon-signout"></i></a>
                                 <span class="identity">
                                     <strong><a href="profile.php"><?= $user['fullname']; ?></a></strong>
                                 </span>
@@ -101,7 +103,7 @@ $user = mysqli_fetch_array($sql);
                     <div class="btn-side">
                         <a href="index.php" class="btn-home" type="button"><i class="icon-home"></i> Home</a>
                         <a href="" class="btn-profile hovered" type="button"><i class="icon-user"></i> Profile</a>
-                        <a href="logout.php" class="link-out btn-logout">Log out <i class="icon-signout"></i></a>
+                        <!-- <a href="logout.php" class="link-out btn-logout">Log out <i class="icon-signout"></i></a> -->
                     </div>
                 </td>
                 <td>
@@ -133,7 +135,7 @@ $user = mysqli_fetch_array($sql);
                                                 </div>
                                             </span>
 
-                                            <div class="options">
+                                            <div class="options hide">
                                                 <i class="icon-ellipsis-vertical"></i>
                                             </div>
                                         </span>

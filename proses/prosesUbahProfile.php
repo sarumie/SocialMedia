@@ -33,20 +33,20 @@ if (!empty($uploadFotoName) && !empty($uploadCoverName)) {
             // Jika berhasil upload ke folder server
             echo    "<script>
                     alert('Ubah profile sukses');
-                    location.href = 'profile.php';
+                    location.href = '../profile.php';
                     </script>";
         } else {
             // Jika gagal upload ke folder server
             echo    "<script>
                     alert('Gagal upload file ke server');
-                    location.href = 'profile.php';
+                    location.href = '../profile.php';
                     </script>";
         }
     } else {
         // Jika gagal ubah di databasenya
         echo    "<script>
                     alert('Gagal mengubah profile');
-                    location.href = 'profile.php';
+                    location.href = '../profile.php';
                     </script>";
     }
 }

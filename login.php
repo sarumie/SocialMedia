@@ -19,6 +19,7 @@ if (isset($_SESSION['userlogin'])) {
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="script/main.js"></script>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
     <style>
         * {

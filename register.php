@@ -19,6 +19,7 @@ if (isset($_SESSION['userlogin'])) {
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="script/main.js"></script>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
     <style>
         * {
@@ -28,7 +29,7 @@ if (isset($_SESSION['userlogin'])) {
 </head>
 
 <body class="w-full h-screen justify-center items-center flex bg-gradient-to-r from-cyan-500 to-blue-500">
-    <div class="w-3/5 h-3/4 bg-white drop-shadow-2xl rounded-md">
+    <div class="w-3/5 h-5/6 bg-white drop-shadow-2xl rounded-md">
         <div class="container h-full flex flex-row">
             <div class="w-1/3 rounded-l-md bg-[url('https://i.ibb.co/SQmBNbm/download-ixid-Mnwx-Mj-A3f-DF8-MXxhb-Gx8-MTF8f-Hx8f-Hwyf-Hwx-Nj-Qw-Nj-Yw-NDU1-force-true-w-1920.jpg')] bg-cover"></div>
             <img src="assets/icon.png" alt="Icon" class="w-1/6 absolute right-0 top-5">

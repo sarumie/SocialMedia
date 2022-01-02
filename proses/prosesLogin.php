@@ -10,7 +10,7 @@ $row = mysqli_num_rows($sql);
 $data = mysqli_fetch_array($sql);
 
 if ($row == 1) {
-    // Jika ada / sama maka akses login diberikan kepada akun yang ada
+    // Jika ada akun sama maka akses login diberikan kepada akun yang ada
     $_SESSION['userlogin'] = $username;
     $_SESSION['iduser'] = $data['iduser'];
     $_SESSION['level'] = $data['level'];
